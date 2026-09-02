@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<title>Equipo Héctor Barría · Accesos Legislativos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#1f3552">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Barría">
+<style>
+  :root{
+    --ink:#16243a;--ink2:#1f3552;--bg:#e9edf2;--card:#ffffff;
+    --teal:#0f766e;--blue:#1e3a5f;--amber:#d98324;
+    --yellow:#c9941f;--pink:#c2447a;--red:#c23b3b;--green:#2f8f4e;
+    --rk-barria:#1e3a5f;--rk-nuyado:#0f766e;--rk-lilayu:#c23b3b;--rk-munoz:#c9941f;
+    --text:#2b3a4f;--muted:#7c8aa0;--line:#dde3ec;
+    --shadow:0 1px 3px rgba(22,36,58,.07),0 10px 30px rgba(22,36,58,.06);
+    --drive-accent:#1a73e8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+  a{text-decoration:none;color:inherit}
+  .masthead{background:radial-gradient(120% 140% at 85% -10%,#243a5c 0%,transparent 55%),linear-gradient(180deg,var(--ink) 0%,var(--ink2) 100%);color:#fff;padding:44px 24px 38px;position:relative;overflow:hidden}
+  .masthead::after{content:"";position:absolute;left:24px;right:24px;bottom:0;height:3px;background:linear-gradient(90deg,var(--amber) 0%,var(--amber) 64px,transparent 64px)}
+  .mast-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+  .mast-left{flex:1;min-width:0}.mast-right{display:flex;align-items:center;flex-shrink:0}
+  .mast-photo{width:60px;height:60px;border-radius:50%;flex-shrink:0;object-fit:cover;object-position:center top;border:2px solid rgba(255,255,255,.55);box-shadow:0 4px 14px rgba(0,0,0,.22)}
+  @media(max-width:640px){.mast-photo{width:48px;height:48px}}
+  .eyebrow{font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#9fb4d0;margin-bottom:10px}
+  .mast-title{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:clamp(28px,6vw,46px);line-height:1.02;letter-spacing:-.01em;color:#fff}
+  .mast-sub{margin-top:12px;font-size:14.5px;color:#b9c7dc;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+  .mast-sub .dot{width:4px;height:4px;border-radius:50%;background:#52688a}
+  .pill{display:inline-block;border:1px solid #3a5079;color:#cdd9ea;border-radius:999px;padding:3px 11px;font-size:12.5px;font-weight:500}
+  .layout{flex:1;max-width:1180px;width:100%;margin:0 auto;padding:34px 24px 8px;display:grid;grid-template-columns:1fr 320px;gap:28px;align-items:start}
+  @media(max-width:980px){.layout{grid-template-columns:1fr}}
+  .section-label{display:flex;align-items:center;gap:12px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:8px 2px 16px}
+  .section-label::after{content:"";flex:1;height:1px;background:var(--line)}
+  .section-label.mt{margin-top:30px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:640px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 22px 20px;display:flex;flex-direction:column;box-shadow:var(--shadow);border-left:4px solid var(--accent,var(--teal));transition:transform .18s ease,box-shadow .18s ease;outline:none}
+  .card:hover,.card:focus-visible{transform:translateY(-3px);box-shadow:0 4px 10px rgba(22,36,58,.10),0 18px 40px rgba(22,36,58,.12)}
+  .card-top{display:flex;align-items:center;gap:13px;margin-bottom:13px}
+  .icon{width:42px;height:42px;border-radius:11px;flex-shrink:0;display:grid;place-items:center;background:var(--accent,var(--teal))}
+  .icon svg{width:22px;height:22px;stroke:#fff;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .card h3{font-size:16.5px;font-weight:700;color:var(--ink);letter-spacing:-.01em;line-height:1.2}
+  .card p{font-size:13.5px;color:var(--muted);margin-top:1px}
+  .card .desc{font-size:13.5px;color:var(--text);margin-bottom:16px}
+  .card .open{margin-top:auto;display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--accent,var(--teal))}
+  .card .open svg{width:15px;height:15px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .drive-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--shadow)}
+  .drive-card h3{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:19px;color:var(--ink);letter-spacing:-.01em;margin-bottom:4px}
+  .drive-card .drive-sub{font-size:13px;color:var(--muted);margin-bottom:16px}
+  .drive-card .desc{font-size:13.5px;color:var(--text);margin-bottom:14px}
+  .drive-link{display:inline-flex;align-items:center;gap:7px;margin-top:12px;font-size:13px;font-weight:600;color:var(--drive-accent)}
+  .drive-link svg{width:15px;height:15px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--shadow);position:sticky;top:24px}
+  @media(max-width:980px){.panel{position:static}}
+  .panel-head h3{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:19px;color:var(--ink);letter-spacing:-.01em}
+  .panel-head p{font-size:12.5px;color:var(--muted);margin-top:4px;line-height:1.5}
+  .rank-list{margin-top:18px;display:flex;flex-direction:column;gap:14px}
+  .rank-item{display:flex;flex-direction:column;gap:6px}
+  .rank-row{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+  .rank-name{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;color:var(--ink)}
+  .rank-name .dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+  .rank-name .you{font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:var(--ink2);border-radius:5px;padding:1px 6px;margin-left:2px}
+  .rank-count{font-size:13.5px;font-weight:700;color:var(--text);font-variant-numeric:tabular-nums}
+  .rank-track{height:8px;border-radius:6px;background:var(--bg);overflow:hidden}
+  .rank-fill{height:100%;border-radius:6px;transition:width .5s ease}
+  .panel-foot{margin-top:18px;padding-top:14px;border-top:1px solid var(--line);font-size:11.5px;color:var(--muted);line-height:1.6}
+  .ranking-link{display:inline-flex;align-items:center;gap:5px;margin-top:10px;font-size:12px;font-weight:600;color:var(--blue)}
+  .ranking-link svg{width:13px;height:13px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  footer{max-width:1180px;margin:0 auto;width:100%;padding:26px 24px 34px;margin-top:18px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);line-height:1.7}
+  footer b{color:var(--text);font-weight:600}
+  @media(prefers-reduced-motion:reduce){.card{transition:none}.card:hover,.card:focus-visible{transform:none}.rank-fill{transition:none}}
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="mast-inner">
+    <div class="mast-left">
+      <div>
+        <div class="eyebrow">Equipo Legislativo</div>
+        <div class="mast-title">Héctor Barría</div>
+      </div>
+      <div class="mast-sub">
+        <span class="pill">Diputado</span>
+        <span>Distrito 25</span><span class="dot"></span>
+        <span>Región de Los Lagos</span><span class="dot"></span>
+        <span>Partido Demócrata Cristiano</span>
+      </div>
+    </div>
+    <div class="mast-right">
+      <img class="mast-photo" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUEBAQEAwUEBAQGBQUGCA0ICAcHCBALDAkNExAUExIQEhIUFx0ZFBYcFhISGiMaHB4fISEhFBkkJyQgJh0gISD/2wBDAQUGBggHCA8ICA8gFRIVICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICD/wAARCAEiASIDASIAAhEBAxEB/8QAHQABAAEEAwEAAAAAAAAAAAAAAAQFBgcIAQIDCf/EADoQAAEDAwIFAwIEBAYCAwEAAAEAAgMEBRESIQYTMUFRByJhMnEIFCOBQnKRwRUkUmKhsRYzNDZ0gv/EABoBAQADAQEBAAAAAAAAAAAAAAABAgMEBQb/xAAoEQACAgEEAQMEAwEAAAAAAAAAAQIRAwQSITFBEyJRBRQyYUJxkbH/2gAMAwEAAhEDEQA/ANy0REAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREARFBuV2t1no3Vdzq46WBvV8hwEBORa+cYfij4OsjpaWzMfcqlhI1MILFhS8fij47uL3ihpKOljJ9p0nICiyaN7HODRqcdIHclU6pv9ko9X5q60sOnch0oGF88671f9QrrG8TcTSU7XdoThWZcL9xBcJXPquIqyYnrqf1SxR9LKXj3g+skMUHENCXg4wZgFXaeuo6saqWqimH+x4K+ULJKyJ+qOunif11tccq5bZx7x1ZAH27iarONg1zshBR9QkWiPDP4qONrNAILxRUtewba9J1K/aL8YNvJYK6xytH8RYFJBtiiwfZfxN+nV2fDHJUvo3ybHmuAwVmK13e3XmiZW2yrjqYHjIew5CAnIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIisL1D9UOHfT+1vluFS2Stc08mmafc8/wBkBXOMOKrfwfw1U3m4SBkcQOkE7uPgL5+ep/qdxN6iXp81RWzU1rziKmjcWgt7ZAXHqL6s8R+oN2cblP8Al7e0/pUrTv8Aue6sZ8pIDi3OBsFWy1HlHGyIgRRCMd3Y6r0JjA9zgT4C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" alt="Foto del diputado Héctor Barría">
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <main>
+    <div class="section-label">Sala de la Cámara</div>
+    <div class="grid">
+      <a class="card" style="--accent:var(--yellow)" href="https://www.camara.cl/verDoc.aspx?prmId=0&prmTipo=TABLASEMANAL" target="_blank" rel="noopener">
+        <div class="card-top">
+          <span class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4M8 13h2M14 13h2M8 17h2M14 17h2"/></svg></span>
+          <div><h3>Tabla Semanal</h3><p>Orden del día de la semana</p></div>
+        </div>
+        <div class="desc">Los proyectos y materias agendados para las sesiones de Sala de la semana en curso.</div>
+        <span class="open">Abrir en camara.cl <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+      </a>
+      <a class="card" style="--accent:var(--pink)" href="https://www.camara.cl/sala/default.aspx" target="_blank" rel="noopener">
+        <div class="card-top">
+          <span class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/><circle cx="12" cy="15" r="2.4"/></svg></span>
+          <div><h3>Tabla del día</h3><p>Sesión más cercana</p></div>
+        </div>
+        <div class="desc">El trabajo en Sala de la sesión vigente: orden del día, cuenta y documentos sobre tabla.</div>
+        <span class="open">Abrir en camara.cl <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+      </a>
+    </div>
+
+    <div class="section-label mt">Citaciones de Comisiones</div>
+    <div class="grid">
+      <a class="card" style="--accent:var(--red)" href="https://www.camara.cl/legislacion/comisiones/citaciones.aspx?prmID=3312&prmIdTipo=2101" target="_blank" rel="noopener">
+        <div class="card-top">
+          <span class="icon"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
+          <div><h3>Educación</h3><p>Educación, Deportes y Recreación</p></div>
+        </div>
+        <div class="desc">Citaciones de la Comisión: fecha de la próxima sesión y tabla de materias a tratar.</div>
+        <span class="open">Abrir en camara.cl <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+      </a>
+      <a class="card" style="--accent:var(--blue)" href="https://www.camara.cl/legislacion/comisiones/citaciones.aspx?prmID=3326&prmIdTipo=2101" target="_blank" rel="noopener">
+        <div class="card-top">
+          <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg></span>
+          <div><h3>Recursos Hídricos</h3><p>Recursos Hídricos y Desertificación</p></div>
+        </div>
+        <div class="desc">Citaciones de la Comisión: fecha de la próxima sesión y tabla de materias a tratar.</div>
+        <span class="open">Abrir en camara.cl <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+      </a>
+    </div>
+
+    <div class="section-label mt">Actividad Legislativa</div>
+    <div class="grid">
+      <a class="card" style="--accent:var(--blue)" href="https://www.camara.cl/diputados/detalle/mociones.aspx?prmId=1105" target="_blank" rel="noopener">
+        <div class="card-top">
+          <span class="icon"><svg viewBox="0 0 24 24"><path d="M9 2h6l1 4H8l1-4Z"/><path d="M7 6h10l1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L7 6Z"/><path d="M10 11h4M10 15h4"/></svg></span>
+          <div><h3>Mociones</h3><p>Proyectos de ley de Barría</p></div>
+        </div>
+        <div class="desc">Listado oficial de mociones presentadas por el diputado Héctor Barría en la Cámara.</div>
+        <span class="open">Abrir en camara.cl <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+      </a>
+    </div>
+
+    <div class="section-label mt">Documentos y Minutas</div>
+    <div class="drive-card">
+      <h3>Minutas y Proyectos de Ley</h3>
+      <div class="drive-sub">Documentos de trabajo del diputado</div>
+      <p class="desc">Todas las minutas y proyectos de ley preparados por el equipo, organizados en Google Drive.</p>
+      <a href="https://drive.google.com/drive/folders/15LRWcZB13qHlK2SF4oBM2M3zTREsAt7A" target="_blank" rel="noopener"
+         style="display:flex;align-items:center;gap:16px;padding:18px 20px;background:#f8faff;border:1.5px solid #dde3ec;border-radius:12px;text-decoration:none;color:inherit;transition:box-shadow .18s ease;"
+         onmouseover="this.style.boxShadow='0 4px 14px rgba(30,58,95,.12)'"
+         onmouseout="this.style.boxShadow='none'">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="8" fill="#E8F0FE"/><path d="M14 26l5-8.66h10L24 26H14z" fill="#4285F4"/><path d="M11 21l5-8.66 5 8.66H11z" fill="#0F9D58"/><path d="M24 17.34L29 26H19l5-8.66z" fill="#FBBC04"/></svg>
+        <div>
+          <div style="font-weight:700;font-size:14.5px;color:#16243a">Carpeta Bancada DC en Google Drive</div>
+          <div style="font-size:12.5px;color:#7c8aa0;margin-top:2px">Minutas, proyectos de ley y documentos de trabajo</div>
+        </div>
+        <svg style="margin-left:auto;flex-shrink:0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c8aa0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
+      <a class="drive-link" href="https://drive.google.com/drive/folders/15LRWcZB13qHlK2SF4oBM2M3zTREsAt7A" target="_blank" rel="noopener">
+        Abrir carpeta en Google Drive
+        <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
+    </div>
+  </main>
+
+  <aside class="panel" aria-label="Ranking de mociones del Distrito 25">
+    <div class="panel-head">
+      <h3>Mociones · Distrito 25</h3>
+      <p>Proyectos de ley presentados por cada diputado/a en el período 2026–2030.</p>
+    </div>
+    <div class="rank-list" id="rankList"></div>
+    <div class="panel-foot">
+      Fuente: Cámara de Diputadas y Diputados de Chile (camara.cl). Se actualiza automáticamente una vez al día.
+      <div id="rankFecha" style="margin-top:4px;font-weight:600"></div>
+      <a class="ranking-link" href="https://equipo-patricio-pinilla.vercel.app/ranking.html" target="_blank" rel="noopener">
+        Ver ranking general (155 diputados) →
+        <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div>Los accesos abren las páginas oficiales de la <b>Cámara de Diputadas y Diputados de Chile</b> (camara.cl), que se actualizan en tiempo real. Esta página solo enlaza esas fuentes.</div>
+  <div style="margin-top:10px">Sitio creado por <b>Bancada DC - JCCH</b>.</div>
+</footer>
+
+<script>
+  const NOMBRES_DISTRITO_25 = [
+    "Héctor Barría Angulo",
+    "Emilia Nuyado Ancapichún",
+    "Danuel Lilayu Wenupán",
+    "Paulina Muñoz Baeza",
+  ];
+
+  const COLOR_POR_NOMBRE = {
+    "Héctor Barría Angulo":      "var(--rk-barria)",
+    "Emilia Nuyado Ancapichún":  "var(--rk-nuyado)",
+    "Danuel Lilayu Wenupán":     "var(--rk-lilayu)",
+    "Paulina Muñoz Baeza":       "var(--rk-munoz)",
+  };
+
+  const RESPALDO = NOMBRES_DISTRITO_25.map(n => ({nombre: n, mociones: 0}));
+
+  function normalizar(s) {
+    return s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
+  }
+
+  function renderRanking(data, actualizado) {
+    const ord = [...data].sort((a,b) => b.mociones - a.mociones);
+    const max = Math.max(...ord.map(d => d.mociones), 1);
+    document.getElementById("rankList").innerHTML = ord.map(d => {
+      const color = COLOR_POR_NOMBRE[d.nombre] || "var(--muted)";
+      const esBarria = d.nombre === "Héctor Barría Angulo";
+      return `<div class="rank-item">
+        <div class="rank-row">
+          <span class="rank-name">
+            <span class="dot" style="background:${color}"></span>
+            ${d.nombre}
+            ${esBarria ? '<span class="you">Nuestro diputado</span>' : ""}
+          </span>
+          <span class="rank-count">${d.mociones}</span>
+        </div>
+        <div class="rank-track">
+          <div class="rank-fill" style="width:${(d.mociones/max*100).toFixed(0)}%;background:${color}"></div>
+        </div>
+      </div>`;
+    }).join("");
+    const el = document.getElementById("rankFecha");
+    if (el && actualizado) {
+      el.textContent = "Última actualización: " + new Date(actualizado).toLocaleDateString("es-CL", {day:"numeric",month:"long",year:"numeric"});
+    }
+  }
+
+  async function cargarRanking() {
+    try {
+      const resp = await fetch("https://equipo-patricio-pinilla.vercel.app/api/ranking");
+      const data = await resp.json();
+      if (!data?.ranking || data.error) throw new Error("Sin datos");
+      const mocionesMap = {};
+      data.ranking.forEach(d => { mocionesMap[normalizar(d.nombre)] = d.mociones; });
+      const d25 = NOMBRES_DISTRITO_25.map(nombre => ({
+        nombre, mociones: mocionesMap[normalizar(nombre)] ?? 0
+      }));
+      renderRanking(d25, data.actualizado);
+    } catch(e) {
+      renderRanking(RESPALDO, null);
+    }
+  }
+
+  cargarRanking();
+</script>
+
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("/service-worker.js").catch(() => {});
+    });
+  }
+</script>
+</body>
+</html>
